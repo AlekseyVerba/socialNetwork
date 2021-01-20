@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Dialogs from './components/Dialogs/Dialogs';
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
+import Profile from './components/Profile/Profile';
+import { BrowserRouter, Route } from "react-router-dom"
+import Music from './components/Music/Music';
+import Settings from './components/Settings/Settings';
+import News from './components/News/News';
 
-function App() {
+function App(props) {
+
+  const el = props.store.dispatch;
+  debugger
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter >
+      <div className="app">
+        <Header />
+        <div className="down">
+          <Navbar />
+          <Route path="/profile" render={() => <Profile store={props.store} dispatch={props.dispatch} />} />
+          {/* <Route path="/message" render={() => <Dialogs state={messagesPage} dispatch={props.dispatch} />} /> */}
+          <Route path="/news" render={() => <News />} />
+          <Route path="/music" render={() => <Music />} />
+          <Route path="/settings" render={() => <Settings />} />
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

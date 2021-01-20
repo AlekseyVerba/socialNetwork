@@ -1,0 +1,22 @@
+.aboutProfile {
+    font-size: 20px;
+    color: rgb(82, 82, 82);
+}
+.aboutProfile div {
+    margin-bottom: 7px;
+}
+
+.name {
+    font-size: 35px;
+    color: black;
+    font-weight: 600;
+}
+.surname {
+    font-size: 35px;
+    color: black;
+    font-weight: 600;
+}
+
+.age, .country, .city {
+    font-weight: 600;
+}
