@@ -17,18 +17,30 @@ const profilePage = {
 const profilePageReducer = (state = profilePage, action) => {
 
     switch (action.type) {
-        case ADD_POST:
+        case ADD_POST: {
             const el = {
                 id: 8,
                 message: action.text,
                 likeCount: 0
             };
-            state.postsData.push(el)
-            state.valueInputProfile = "";
-            return state;
-        case CHANGE_INPUT_PROFILE:
-            state.valueInputProfile = action.text;
-            return state;
+            let copyState = { ...state };
+            copyState.postsData = [...state.postsData]
+            copyState.postsData.push(el)
+            copyState.valueInputProfile = "";
+            return {
+                ...state,
+                postsData: [...state.postsData, el],
+                valueInputProfile: ""
+            };
+        }
+        case CHANGE_INPUT_PROFILE: {
+            let copyState = { ...state }
+            copyState.valueInputProfile = action.text;
+            return {
+                ...state,
+                valueInputProfile: action.text
+            };
+        }
         default:
             return state
     }

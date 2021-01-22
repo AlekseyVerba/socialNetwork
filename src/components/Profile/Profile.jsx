@@ -16,7 +16,7 @@ const Profile = (props) => {
                     <Avatar src="https://cdnb.artstation.com/p/assets/images/images/022/254/985/large/simone-ornaghi-front.jpg?1574714734" />
                     <AboutProfile name="Томас" surname="Шелби" age="30 лет" country="Великобритания" city="Бирмингем" />
                 </div>
-                <MyPostsContainer store={props.store} dispatch={props.dispatch} />
+                <MyPostsContainer />
             </div>
         </div>
     )

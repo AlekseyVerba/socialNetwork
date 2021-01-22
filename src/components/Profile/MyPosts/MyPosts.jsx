@@ -6,6 +6,7 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
 
+    // debugger
 
     const link = React.createRef();
 

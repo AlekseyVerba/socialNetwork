@@ -1,0 +1,73 @@
+.users {
+    background-color: rgb(226, 225, 225);
+    width: 80%;
+    box-sizing: border-box;
+    padding: 30px 15px;
+}
+.user {
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+}
+.user + .user {
+    margin-top: 30px;
+}
+.avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+}
+
+.imgAvatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: block;
+    margin-bottom: 15px;
+}
+.btnFollow {
+    display: block;
+    cursor: pointer;
+    padding: 7px 13px;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 3px;
+    transition: all .3s;
+    font-size: 15px;
+}
+.btnFol {
+    background-color: rgb(139, 139, 139);
+}
+.btnFol:hover {
+    background-color: rgb(163, 162, 162);
+}
+
+.btnUnfol {
+    background-color: rgb(228, 228, 228);
+}
+.btnUnfol:hover {
+    background-color: rgb(192, 192, 192);
+}
+.content {
+    width: 65%;
+    border: 2px solid rgb(197, 196, 196);
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fullName {
+    font-size: 19px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.right {
+    font-size: 16px;
+    color: rgb(107, 107, 107);
+    font-weight: 500;
+}
+.status {
+    font-size: 16px;
+    color: rgb(65, 64, 64);
+}

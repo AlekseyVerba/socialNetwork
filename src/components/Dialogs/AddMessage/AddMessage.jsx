@@ -1,7 +1,6 @@
 import React from "react";
 import s from "./AddMessage.module.css";
 
-import { sayInfoActionCreater, changeInputMessageActionCreater } from "../../../Redux/messagesPageReducer"
 
 const AddMessage = (props) => {
 
@@ -12,12 +11,12 @@ const AddMessage = (props) => {
 
     const sayInfo = () => {
         const el = linkEl.current.value;
-        props.dispatch(sayInfoActionCreater(el))
+        props.onSayInfo(el);
     }
 
     const changeInputMessage = () => {
         const el = linkEl.current.value;
-        props.dispatch(changeInputMessageActionCreater(el))
+        props.onChangeInputMessage(el);
     }
 
     return (

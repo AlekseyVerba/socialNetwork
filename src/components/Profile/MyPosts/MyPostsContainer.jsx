@@ -3,27 +3,31 @@ import MyPosts from "./MyPosts"
 
 
 import { changeInputProfileActionCreater, addCountNumActionCreater } from "../../../Redux/profilePageReducer"
+import { connect } from "react-redux";
 
-const MyPostsContainer = (props) => {
-    // debugger
-    const { store: { profilePage: { postsData, valueInputProfile } } } = props;
 
-    // const el = props.store.getState();
-    const addCountNum = (text) => {
-        const action = addCountNumActionCreater(text)
-        props.store.dispatch(action)
+
+let mapStateToProps = (state) => {
+    return {
+        valueInputProfile: state.profilePage.valueInputProfile,
+        postsData: state.profilePage.postsData
     }
-
-    const changeInputProfile = (text) => {
-        const action = changeInputProfileActionCreater(text)
-        props.store.dispatch(action)
-    }
-
-
-    return <MyPosts onAddCountNum={addCountNum}
-        onChangeInputProfile={changeInputProfile}
-        postsData={postsData}
-        valueInputProfile={valueInputProfile} />
 }
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        onChangeInputProfile(text) {
+            const action = changeInputProfileActionCreater(text)
+            dispatch(action)
+        },
+        onAddCountNum(text) {
+            const action = addCountNumActionCreater(text)
+            dispatch(action)
+        }
+    }
+}
+
+let MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts)
+
 
 export default MyPostsContainer;

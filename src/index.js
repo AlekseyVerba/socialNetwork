@@ -5,21 +5,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
+import { Provider } from 'react-redux';
 
 
 
-let renderAll = () => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App store={store.getState()} />
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-}
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store} >
+      <App state={store.getState()} />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-renderAll();
 
-store.subscribe(renderAll)
+// store.subscribe(renderAll)
 
 
 

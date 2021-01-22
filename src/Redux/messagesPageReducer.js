@@ -26,20 +26,26 @@ const messagesPage = {
 const messagesPageReducer = (state = messagesPage, action) => {
 
     switch (action.type) {
-        case SEND_MESSAGE:
+        case SEND_MESSAGE: {
             const el = {
                 id: 7,
                 messages: action.text,
                 im: true,
                 img: "https://sun9-65.userapi.com/impg/aDlEXMtTx5U8xz1l96737w-IsISvIo4pxZXb7w/8m_l0ArGxV4.jpg?size=580x900&quality=96&proxy=1&sign=f3e6ed459e714a3b84eb8f1a88861281&type=album"
             }
+            return {
+                ...state,
+                messagesData: [...state.messagesData, el],
+                valueInputMessage: ""
+            };
+        }
 
-            state.messagesData.push(el)
-            state.valueInputMessage = "";
-            return state;
-        case CHANGE_INPUT_MESSAGE:
-            state.valueInputMessage = action.text;
-            return state;
+        case CHANGE_INPUT_MESSAGE: {
+            return {
+                ...state,
+                valueInputMessage: action.text
+            };
+        }
         default:
             return state;
     }
